@@ -1,5 +1,4 @@
 const express = require("express");
-const port = process.env.PORT || 3000;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require("node:fs");
@@ -166,8 +165,8 @@ app.get("/", function () {
   console.log("root page!");
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(3000, () => {
+  console.log(`listening`);
 });
 
 module.exports = app;
