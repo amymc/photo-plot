@@ -154,6 +154,7 @@ const prepareImage = async (imageData) => {
 };
 
 app.post("/generate", async (req, res) => {
+  console.log("generate url");
   await prepareImage(req.body);
 });
 
