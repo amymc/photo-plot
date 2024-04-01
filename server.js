@@ -158,6 +158,10 @@ app.post("/generate", async (req, res) => {
   await prepareImage(req.body);
 });
 
+app.get("/generate", function () {
+  console.log("generate page!");
+});
+
 app.get("/", function () {
   console.log("root page!");
 });
