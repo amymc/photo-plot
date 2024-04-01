@@ -1,4 +1,5 @@
 const express = require("express");
+const port = process.env.PORT || 3000;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require("node:fs");
@@ -156,7 +157,7 @@ app.post("/generate", async (req, res) => {
   await prepareImage(req.body);
 });
 
-app.listen(3000, "127.0.0.1", function () {
+app.listen(port, function () {
   console.log("listening");
 });
 
