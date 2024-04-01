@@ -68,7 +68,7 @@ const context = canvas.getContext("2d");
   }
 
   const convertPhoto = async () => {
-    fetch("http://127.0.0.1:3000/generate", {
+    fetch("https://photo-plot.onrender.com:3000/generate", {
       method: "POST",
       headers: {
         "Content-Type": "text/plain",
