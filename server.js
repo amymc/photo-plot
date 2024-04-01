@@ -158,6 +158,10 @@ app.post("/generate", async (req, res) => {
   await prepareImage(req.body);
 });
 
+app.get("/", function () {
+  console.log("root page!");
+});
+
 app.listen(port, function () {
   console.log("listening");
 });
