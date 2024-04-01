@@ -16,6 +16,7 @@ const hash = crypto.createHash("sha1");
 hash.setEncoding("hex");
 
 const prepareImage = async (imageData) => {
+  console.log("prepare");
   fs.writeFile("./image.txt", imageData, (err) => {
     if (err) {
       console.error(err);
@@ -56,7 +57,6 @@ const prepareImage = async (imageData) => {
           for (var y = 0; y < this.height; y++) {
             colorArray.push([]);
             for (var x = 0; x < this.width; x++) {
-              //   console.log("inner loop");
               var idx = (this.width * y + x) << 2;
 
               // invert color
@@ -81,67 +81,75 @@ const prepareImage = async (imageData) => {
   }
 
   const generateHPGL = () => {
+    console.log("generate");
+
     let hpglString = "IN;\nSP2;\n";
-    let penOffsets = [
-      [0, 0],
-      [50, 50],
-      [-70, -70],
-    ];
+    // let penOffsets = [
+    //   [0, 0],
+    //   [50, 50],
+    //   [-70, -70],
+    // ];
 
-    for (let penNum = 0; penNum < penOffsets.length; penNum++) {
-      rowCount = 0;
+    // for (let penNum = 0; penNum < penOffsets.length; penNum++) {
+    rowCount = 0;
 
-      for (let i = 0; i < colorArray.length; i++) {
-        let x = i * 12;
+    for (let i = 0; i < colorArray.length; i++) {
+      let x = i * 12;
 
-        let inking = false;
+      let inking = false;
 
-        for (let j = 0; j < colorArray[0].length; j++) {
-          colorValue = colorArray[i][j];
-          Y =
-            0.2126 * colorArray[i][j][0] +
-            0.7152 * colorArray[i][j][1] +
-            0.0722 * colorArray[i][j][2];
+      for (let j = 0; j < colorArray[0].length; j++) {
+        Y =
+          0.2126 * colorArray[i][j][0] +
+          0.7152 * colorArray[i][j][1] +
+          0.0722 * colorArray[i][j][2];
 
-          const isBlack = Y < 128;
-          let y = j * 12;
+        const isBlack = Y < 128;
+        let y = j * 12;
 
-          if (!isBlack && !inking) {
-            // pen down
-            hpglString += `PA${x},${y};\n`;
-            hpglString += "PD;\n";
-            inking = true;
-          } else if (isBlack && inking) {
-            // draw all the way here and lift
-            hpglString += `PA${x},${y};\n`;
-            hpglString += "PU;\n";
-            inking = false;
-          }
-          //   else if (j === colorArray[0].length - 1) {
-          //     hpglString += "PU;\n";
-          //     inking = false;
-          //   }
+        if (!isBlack && !inking) {
+          // pen down
+          hpglString += `PA${x},${y};\n`;
+          hpglString += "PD;\n";
+          inking = true;
+        } else if (isBlack && inking) {
+          // draw all the way here and lift
+          hpglString += `PA${x},${y};\n`;
+          hpglString += "PU;\n";
+          inking = false;
         }
+        //   else if (j === colorArray[0].length - 1) {
+        //     hpglString += "PU;\n";
+        //     inking = false;
+        //   }
       }
     }
+    // }
 
     fs.writeFile("./image.hpgl", hpglString, (err) => {
       if (err) {
         console.error(err);
       } else {
         // file written successfully
+
+        console.log("plot");
+        const { spawn } = require("child_process");
+
+        var sp = spawn("./plotter-tools/chunker/target/debug/chunker", [
+          "./image.hpgl",
+        ]);
+
+        sp.stdout.on("data", (data) => {
+          console.log(`stdout: ${data}`);
+        });
+
+        sp.stderr.on("data", (data) => {
+          console.error(`stderr: ${data}`);
+        });
       }
     });
   };
-  run().catch(console.error);
-
-  require("child_process").exec(
-    `./chunker ./image.hpgl
-      `,
-    {
-      stdio: "inherit",
-    }
-  );
+  run().catch("err", console.error);
 };
 
 app.post("/generate", async (req, res) => {
@@ -151,3 +159,5 @@ app.post("/generate", async (req, res) => {
 app.listen(3000, "127.0.0.1", function () {
   console.log("listening");
 });
+
+module.exports = app;

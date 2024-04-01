@@ -102,6 +102,7 @@ const context = canvas.getContext("2d");
       context.drawImage(video, 0, 0, width, height);
 
       base64String = canvas.toDataURL("image/png");
+      console.log("canvas", base64String);
       photo.setAttribute("src", base64String);
     } else {
       clearphoto();
