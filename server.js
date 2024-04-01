@@ -166,8 +166,8 @@ app.get("/", function () {
   console.log("root page!");
 });
 
-app.listen(port, function () {
-  console.log("listening");
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
 
 module.exports = app;
