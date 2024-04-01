@@ -158,6 +158,8 @@ app.post("/generate", async (req, res) => {
   await prepareImage(req.body);
 });
 
+app.get("/generate", (req, res) => res.type("html").send(html));
+
 // app.get("/generate", function () {
 //   console.log("generate page!");
 // });
@@ -172,7 +174,7 @@ app.post("/generate", async (req, res) => {
 
 // module.exports = app;
 
-app.get("/", (req, res) => res.type("html").send(html));
+// app.get("/", (req, res) => res.type("html").send(html));
 
 const server = app.listen(port, () =>
   console.log(`Example app listening on port ${port}!`)
