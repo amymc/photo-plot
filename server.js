@@ -20,7 +20,8 @@ hash.setEncoding("hex");
 
 exec(
   `git submodule init
-   git submodule update`,
+   git submodule update
+   git submodule`,
   {
     stdio: "inherit",
   }
