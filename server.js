@@ -5,10 +5,19 @@ const bodyParser = require("body-parser");
 const fs = require("node:fs");
 const PNG = require("pngjs").PNG;
 const crypto = require("crypto");
-
-const { exec, spawn } = require("child_process");
+const shell = require("shelljs");
+const { spawn } = require("child_process");
 
 const { pipeline } = require("node:stream/promises");
+
+shell.exec(
+  `git submodule init
+   git submodule update
+   git submodule status`,
+  {
+    stdio: "inherit",
+  }
+);
 
 const app = express();
 app.use(cors());
@@ -17,15 +26,6 @@ app.use(bodyParser.text({ limit: "50mb" }));
 
 const hash = crypto.createHash("sha1");
 hash.setEncoding("hex");
-
-exec(
-  `git submodule init
-   git submodule update
-   git submodule`,
-  {
-    stdio: "inherit",
-  }
-);
 
 const prepareImage = async (imageData) => {
   console.log("prepare");
@@ -37,7 +37,7 @@ const prepareImage = async (imageData) => {
     }
   });
 
-  exec(
+  shell.exec(
     `convert inline:image.txt result1.png
            convert result1.png -colorspace Gray result.png
            convert result.png -background black -alpha remove -alpha off result.png
@@ -171,9 +171,9 @@ app.post("/generate", async (req, res) => {
   await prepareImage(req.body);
 });
 
-const server = app.listen(port, () =>
-  console.log(`Example app listening on port ${port}!`)
-);
+const server = app.listen(port, async () => {
+  console.log(`Example app listening on port ${port}!`);
+});
 
 server.keepAliveTimeout = 120 * 1000;
 server.headersTimeout = 120 * 1000;
