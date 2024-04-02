@@ -6,7 +6,6 @@ const fs = require("node:fs");
 const PNG = require("pngjs").PNG;
 const crypto = require("crypto");
 const shell = require("shelljs");
-const { spawn } = require("child_process");
 
 const { pipeline } = require("node:stream/promises");
 
@@ -37,7 +36,7 @@ const prepareImage = async (imageData) => {
     }
   });
 
-  shell.exec(
+  require("child_process").exec(
     `convert inline:image.txt result1.png
            convert result1.png -colorspace Gray result.png
            convert result.png -background black -alpha remove -alpha off result.png
@@ -145,9 +144,10 @@ const prepareImage = async (imageData) => {
         // file written successfully
 
         console.log("plot");
-        var sp = spawn("plotter-tools/chunker/target/debug/chunker", [
-          "image.hpgl",
-        ]);
+        var sp = require("child_process").spawn(
+          "plotter-tools/chunker/target/debug/chunker",
+          ["image.hpgl"]
+        );
 
         sp.on("error", (err) => {
           console.log(`Error: ${err}`);
