@@ -137,7 +137,7 @@ const prepareImage = async (imageData) => {
         const { spawn } = require("child_process");
 
         var sp = spawn("plotter-tools/chunker/target/debug/chunker", [
-          "image.hpgl",
+          "./image.hpgl",
         ]);
 
         sp.on("error", (err) => {
