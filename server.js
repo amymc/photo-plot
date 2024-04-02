@@ -75,20 +75,20 @@ const generateHPGL = (colorArray) => {
       console.error(err);
     } else {
       // file written successfully
-      // console.log("plot");
-      // const { spawn } = require("child_process");
-      // var sp = spawn("plotter-tools/chunker/target/debug/chunker", [
-      //   "image.hpgl",
-      // ]);
-      // sp.on("error", (err) => {
-      //   console.log(`Error: ${err}`);
-      // });
-      // sp.stdout.on("data", (data) => {
-      //   console.log(`stdout: ${data}`);
-      // });
-      // sp.stderr.on("data", (data) => {
-      //   console.error(`stderr: ${data}`);
-      // });
+      console.log("plot");
+      const { spawn } = require("child_process");
+      var sp = spawn("plotter-tools/chunker/target/debug/chunker", [
+        "image.hpgl",
+      ]);
+      sp.on("error", (err) => {
+        console.log(`Error: ${err}`);
+      });
+      sp.stdout.on("data", (data) => {
+        console.log(`stdout: ${data}`);
+      });
+      sp.stderr.on("data", (data) => {
+        console.error(`stderr: ${data}`);
+      });
     }
   });
 };
