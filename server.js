@@ -140,6 +140,10 @@ const prepareImage = async (imageData) => {
           "./image.hpgl",
         ]);
 
+        sp.on("error", (err) => {
+          console.log(`Error: ${err}`);
+        });
+
         sp.stdout.on("data", (data) => {
           console.log(`stdout: ${data}`);
         });
