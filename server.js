@@ -6,6 +6,8 @@ const fs = require("node:fs");
 const PNG = require("pngjs").PNG;
 const crypto = require("crypto");
 
+const { exec, spawn } = require("child_process");
+
 const { pipeline } = require("node:stream/promises");
 
 const app = express();
@@ -15,6 +17,14 @@ app.use(bodyParser.text({ limit: "50mb" }));
 
 const hash = crypto.createHash("sha1");
 hash.setEncoding("hex");
+
+exec(
+  `git submodule init
+   git submodule update`,
+  {
+    stdio: "inherit",
+  }
+);
 
 const prepareImage = async (imageData) => {
   console.log("prepare");
@@ -26,7 +36,7 @@ const prepareImage = async (imageData) => {
     }
   });
 
-  require("child_process").exec(
+  exec(
     `convert inline:image.txt result1.png
            convert result1.png -colorspace Gray result.png
            convert result.png -background black -alpha remove -alpha off result.png
@@ -134,8 +144,6 @@ const prepareImage = async (imageData) => {
         // file written successfully
 
         console.log("plot");
-        const { spawn } = require("child_process");
-
         var sp = spawn("plotter-tools/chunker/target/debug/chunker", [
           "image.hpgl",
         ]);
