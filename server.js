@@ -77,8 +77,8 @@ const generateHPGL = (colorArray) => {
     } else {
       // file written successfully
       console.log("plot");
-      shell.exec(`ls`);
-      process.chdir("./plotter-tools/chunker/");
+      // shell.exec(`ls`);
+      // process.chdir("./plotter-tools/chunker/");
       // require("child_process").exec(`cd plotter-tools/chunker/`);
       // shell.exec(
       //   `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path`
@@ -105,7 +105,7 @@ const generateHPGL = (colorArray) => {
       // shell.exec(`./cargo-binstall`);
 
       shell.exec(
-        "./cargo-binstall ../image.hpgl",
+        "./plotter-tools/chunker/cargo-binstall ./image.hpgl",
         function (code, stdout, stderr) {
           console.log("Exit code:", code);
           console.log("Program output:", stdout);
