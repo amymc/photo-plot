@@ -76,20 +76,33 @@ const generateHPGL = (colorArray) => {
     } else {
       // file written successfully
       console.log("plot");
-      shell.exec(`ls`);
+      process.chdir("../plotter-tools/chunker/");
+      // require("child_process").exec(`cd plotter-tools/chunker/`);
+      shell.exec(`cargo build`);
+
       const { spawn } = require("child_process");
-      var sp = spawn("plotter-tools/chunker/target/debug/chunker", [
-        "image.hpgl",
-      ]);
-      sp.on("error", (err) => {
-        console.log(`Error: ${err}`);
-      });
-      sp.stdout.on("data", (data) => {
-        console.log(`stdout: ${data}`);
-      });
-      sp.stderr.on("data", (data) => {
-        console.error(`stderr: ${data}`);
-      });
+      // process.chdir("./target/debug/");
+      shell.exec(`ls`);
+      shell.exec("./target/debug/chunker ../image.hpgl");
+      // sp.on("error", (err) => {
+      //   console.log(`Error: ${err}`);
+      // });
+      // sp.stdout.on("data", (data) => {
+      //   console.log(`stdout: ${data}`);
+      // });
+      // sp.stderr.on("data", (data) => {
+      //   console.error(`stderr: ${data}`);
+      // });
+      // var sp = spawn("/target/debug/chunker", ["image.hpgl"]);
+      // sp.on("error", (err) => {
+      //   console.log(`Error: ${err}`);
+      // });
+      // sp.stdout.on("data", (data) => {
+      //   console.log(`stdout: ${data}`);
+      // });
+      // sp.stderr.on("data", (data) => {
+      //   console.error(`stderr: ${data}`);
+      // });
     }
   });
 };
