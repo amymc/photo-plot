@@ -88,11 +88,20 @@ const generateHPGL = (colorArray) => {
       //   `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y`
       // );
       // shell.exec(`. "$HOME/.cargo/env"`);
+      shell.exec(`export PATH="$HOME/.cargo/bin:$PATH"`);
+      // shell.exec(`curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path -y
+      // source $HOME/.cargo/env
+      // source ~/.profile`);
+
+      // shell.exec(`source $HOME/.cargo/env
+      // source ~/.profile`);
+      shell.exec(`ls`);
+
+      shell.exec(`mv ./cargo-binstall $HOME/.cargo/bin`);
       shell.exec(`cargo build`);
 
       const { spawn } = require("child_process");
       // process.chdir("./target/debug/");
-      shell.exec(`ls`);
       shell.exec(
         "./target/debug/chunker ../image.hpgl",
         function (code, stdout, stderr) {
