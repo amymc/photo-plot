@@ -96,7 +96,7 @@ const generateHPGL = (colorArray) => {
       // shell.exec(`source $HOME/.cargo/env
       // source ~/.profile`);
       shell.exec(`ls`);
-
+      shell.exec(`mkdir $HOME/.cargo/bin`);
       shell.exec(`mv ./cargo-binstall $HOME/.cargo/bin`);
       shell.exec(`cargo build`);
 
