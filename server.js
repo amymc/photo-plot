@@ -80,8 +80,12 @@ const generateHPGL = (colorArray) => {
       shell.exec(`ls`);
       process.chdir("./plotter-tools/chunker/");
       // require("child_process").exec(`cd plotter-tools/chunker/`);
+      // shell.exec(
+      //   `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path`
+      // );
+
       shell.exec(
-        `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path`
+        `curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path -y`
       );
       shell.exec(`. "$HOME/.cargo/env"`);
       shell.exec(`cargo build`);
