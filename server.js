@@ -76,6 +76,7 @@ const generateHPGL = (colorArray) => {
     } else {
       // file written successfully
       console.log("plot");
+      shell.exec(`ls`);
       const { spawn } = require("child_process");
       var sp = spawn("plotter-tools/chunker/target/debug/chunker", [
         "image.hpgl",
@@ -151,6 +152,19 @@ const prepareImage = async (imageData) => {
           stdio: "inherit",
         }
       );
+
+      // const child = require("child_process").exec(
+      //   `convert inline:image.txt result1.png
+      //          convert result1.png -colorspace Gray result.png
+      //          convert result.png -background black -alpha remove -alpha off result.png
+      //          convert result.png -threshold 41% result.png
+      //          magick result.png -bordercolor Snow -border 5x5 -density 144 -background black -gravity center  -set caption "RC 2024"  -polaroid 10 result.png
+      //          convert result.png -bordercolor white -border 10x10 -density 144 result.png
+      //     `,
+      //   {
+      //     stdio: "inherit",
+      //   }
+      // );
       child.on("exit", function () {
         run().catch("err", console.error);
       });
