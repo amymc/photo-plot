@@ -77,6 +77,7 @@ const generateHPGL = (colorArray) => {
     } else {
       // file written successfully
       console.log("plot");
+      shell.exec(`ls`);
       process.chdir("../plotter-tools/chunker/");
       // require("child_process").exec(`cd plotter-tools/chunker/`);
       shell.exec(`cargo build`);
