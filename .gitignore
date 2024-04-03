@@ -23,3 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+
+# images
+result.png
+result1.png
+image.txt
+image.hpgl
