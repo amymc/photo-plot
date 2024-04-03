@@ -83,6 +83,7 @@ const generateHPGL = (colorArray) => {
       shell.exec(
         `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path`
       );
+      shell.exec(`. "$HOME/.cargo/env"`);
       shell.exec(`cargo build`);
 
       const { spawn } = require("child_process");
