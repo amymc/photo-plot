@@ -1,0 +1,11 @@
+/Users/amymccarthy/projects/plotter-tools/viz/target/debug/deps/libsyn_mid-bab74bfbb1fe69bc.rmeta: /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/lib.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/macros.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/arg.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/pat.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/path.rs
+
+/Users/amymccarthy/projects/plotter-tools/viz/target/debug/deps/libsyn_mid-bab74bfbb1fe69bc.rlib: /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/lib.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/macros.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/arg.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/pat.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/path.rs
+
+/Users/amymccarthy/projects/plotter-tools/viz/target/debug/deps/syn_mid-bab74bfbb1fe69bc.d: /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/lib.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/macros.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/arg.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/pat.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/path.rs
+
+/Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/lib.rs:
+/Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/macros.rs:
+/Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/arg.rs:
+/Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/pat.rs:
+/Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/syn-mid-0.5.0/src/path.rs:
