@@ -1,0 +1,10 @@
+/Users/amymccarthy/projects/photo-plot/plotter-tools/chunker/target/debug/deps/libversion_check-5fa379555ccd28c4.rmeta: /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/lib.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/version.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/channel.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/date.rs
+
+/Users/amymccarthy/projects/photo-plot/plotter-tools/chunker/target/debug/deps/libversion_check-5fa379555ccd28c4.rlib: /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/lib.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/version.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/channel.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/date.rs
+
+/Users/amymccarthy/projects/photo-plot/plotter-tools/chunker/target/debug/deps/version_check-5fa379555ccd28c4.d: /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/lib.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/version.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/channel.rs /Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/date.rs
+
+/Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/lib.rs:
+/Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/version.rs:
+/Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/channel.rs:
+/Users/amymccarthy/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.1/src/date.rs:
