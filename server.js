@@ -6,6 +6,7 @@ const fs = require("node:fs");
 const PNG = require("pngjs").PNG;
 const crypto = require("crypto");
 const shell = require("shelljs");
+const { exec } = require("child_process");
 
 const { pipeline } = require("node:stream/promises");
 
@@ -83,7 +84,14 @@ const generateHPGL = (colorArray) => {
       const { spawn } = require("child_process");
       // process.chdir("./target/debug/");
       shell.exec(`ls`);
-      shell.exec("./target/debug/chunker ../image.hpgl");
+      shell.exec(
+        "./target/debug/chunker ../image.hpgl",
+        function (code, stdout, stderr) {
+          console.log("Exit code:", code);
+          console.log("Program output:", stdout);
+          console.log("Program stderr:", stderr);
+        }
+      );
       // sp.on("error", (err) => {
       //   console.log(`Error: ${err}`);
       // });
