@@ -89,7 +89,7 @@ const generateHPGL = (colorArray) => {
       // );
       // shell.exec(`. "$HOME/.cargo/env"`);
       shell.exec('echo "$HOME"');
-      shell.exec(`export PATH="$HOME/.cargo/bin:$PATH"`);
+      // shell.exec(`export PATH="$HOME/.cargo/bin:$PATH"`);
       // shell.exec(`curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path -y
       // source $HOME/.cargo/env
       // source ~/.profile`);
@@ -97,8 +97,8 @@ const generateHPGL = (colorArray) => {
       // shell.exec(`source $HOME/.cargo/env
       // source ~/.profile`);
       shell.exec(`ls`);
-      shell.exec(`mkdir $HOME/.cargo/bin`);
-      shell.exec(`mv ./cargo-binstall $HOME/.cargo/bin`);
+      shell.exec(`mkdir /opt/render/.cargo/bin`);
+      shell.exec(`mv ./cargo-binstall /opt/render/.cargo/bin`);
       shell.exec(`cargo build`);
 
       const { spawn } = require("child_process");
