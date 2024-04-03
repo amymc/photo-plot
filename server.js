@@ -88,29 +88,41 @@ const generateHPGL = (colorArray) => {
       //   `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y`
       // );
       // shell.exec(`. "$HOME/.cargo/env"`);
-      shell.exec('echo "$HOME"');
-      // shell.exec(`export PATH="$HOME/.cargo/bin:$PATH"`);
+      // shell.exec('echo "$HOME"');
       // shell.exec(`curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path -y
+      // shell.exec(`curl https://sh.rustup.rs -sSf | sh -s -- -y`);
+      // shell.exec(`export PATH="$HOME/.cargo/bin:$PATH"`);
+      // shell.exec(`echo $PATH`);
       // source $HOME/.cargo/env
       // source ~/.profile`);
 
       // shell.exec(`source $HOME/.cargo/env
       // source ~/.profile`);
       shell.exec(`ls`);
-      shell.exec(`mkdir -p /opt/render/.cargo/bin`);
-      shell.exec(`mv ./cargo-binstall /opt/render/.cargo/bin`);
-      shell.exec(`cargo build`);
+      // shell.exec(`mkdir -p /opt/render/.cargo/bin`);
+      // shell.exec(`mv ./cargo-binstall /opt/render/.cargo/bin`);
+      // shell.exec(`cargo build`);
+      // shell.exec(`./cargo-binstall`);
 
-      const { spawn } = require("child_process");
-      // process.chdir("./target/debug/");
       shell.exec(
-        "./target/debug/chunker ../image.hpgl",
+        "./cargo-binstall ../image.hpgl",
         function (code, stdout, stderr) {
           console.log("Exit code:", code);
           console.log("Program output:", stdout);
           console.log("Program stderr:", stderr);
         }
       );
+
+      // const { spawn } = require("child_process");
+      // process.chdir("./target/debug/");
+      // shell.exec(
+      //   "./target/debug/chunker ../image.hpgl",
+      //   function (code, stdout, stderr) {
+      //     console.log("Exit code:", code);
+      //     console.log("Program output:", stdout);
+      //     console.log("Program stderr:", stderr);
+      //   }
+      // );
       // sp.on("error", (err) => {
       //   console.log(`Error: ${err}`);
       // });
