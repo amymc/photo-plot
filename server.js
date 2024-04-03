@@ -84,9 +84,9 @@ const generateHPGL = (colorArray) => {
       //   `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path`
       // );
 
-      shell.exec(
-        `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y`
-      );
+      // shell.exec(
+      //   `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y`
+      // );
       // shell.exec(`. "$HOME/.cargo/env"`);
       shell.exec(`cargo build`);
 
