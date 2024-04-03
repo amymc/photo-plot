@@ -6,7 +6,6 @@ const fs = require("node:fs");
 const PNG = require("pngjs").PNG;
 const crypto = require("crypto");
 const shell = require("shelljs");
-const { exec } = require("child_process");
 
 const { pipeline } = require("node:stream/promises");
 
@@ -77,40 +76,19 @@ const generateHPGL = (colorArray) => {
     } else {
       // file written successfully
       console.log("plot");
-      process.chdir("../plotter-tools/chunker/");
-      // require("child_process").exec(`cd plotter-tools/chunker/`);
-      shell.exec(`cargo build`);
-
       const { spawn } = require("child_process");
-      // process.chdir("./target/debug/");
-      shell.exec(`ls`);
-      shell.exec(
-        "./target/debug/chunker ../image.hpgl",
-        function (code, stdout, stderr) {
-          console.log("Exit code:", code);
-          console.log("Program output:", stdout);
-          console.log("Program stderr:", stderr);
-        }
-      );
-      // sp.on("error", (err) => {
-      //   console.log(`Error: ${err}`);
-      // });
-      // sp.stdout.on("data", (data) => {
-      //   console.log(`stdout: ${data}`);
-      // });
-      // sp.stderr.on("data", (data) => {
-      //   console.error(`stderr: ${data}`);
-      // });
-      // var sp = spawn("/target/debug/chunker", ["image.hpgl"]);
-      // sp.on("error", (err) => {
-      //   console.log(`Error: ${err}`);
-      // });
-      // sp.stdout.on("data", (data) => {
-      //   console.log(`stdout: ${data}`);
-      // });
-      // sp.stderr.on("data", (data) => {
-      //   console.error(`stderr: ${data}`);
-      // });
+      var sp = spawn("plotter-tools/chunker/target/debug/chunker", [
+        "image.hpgl",
+      ]);
+      sp.on("error", (err) => {
+        console.log(`Error: ${err}`);
+      });
+      sp.stdout.on("data", (data) => {
+        console.log(`stdout: ${data}`);
+      });
+      sp.stderr.on("data", (data) => {
+        console.error(`stderr: ${data}`);
+      });
     }
   });
 };
@@ -173,19 +151,6 @@ const prepareImage = async (imageData) => {
           stdio: "inherit",
         }
       );
-
-      // const child = require("child_process").exec(
-      //   `convert inline:image.txt result1.png
-      //          convert result1.png -colorspace Gray result.png
-      //          convert result.png -background black -alpha remove -alpha off result.png
-      //          convert result.png -threshold 41% result.png
-      //          magick result.png -bordercolor Snow -border 5x5 -density 144 -background black -gravity center  -set caption "RC 2024"  -polaroid 10 result.png
-      //          convert result.png -bordercolor white -border 10x10 -density 144 result.png
-      //     `,
-      //   {
-      //     stdio: "inherit",
-      //   }
-      // );
       child.on("exit", function () {
         run().catch("err", console.error);
       });
